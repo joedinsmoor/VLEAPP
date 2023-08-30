@@ -9,11 +9,30 @@ from scripts.ilapfuncs import logfunc, tsv, logdevinfo, is_platform_windows, ope
 #Compatability Data
 vehicles = ['Chevrolet 2017+']
 platforms = ['MyLink, Intellilink']
-def myLink_misc():
-    pass
+def myLink_misc(files_found, report_folder, seeker, wrap_text):
+    data_list = []
+    for file_found in files_found:
+        with open(file_found, "r") as f:
+            filename = f.splits()
+            pass
+    data_list.append(filename)
+    if len(data_list) > 0:
+        report = ArtifactHtmlReport('Music Resume Data')
+        report.start_artifact_report(report_folder, f'Music Resume Data')
+        report.add_script()
+        data_headers = ('Filename')
+        file_found = os.path.dirname(file_found)
+        report.write_artifact_data_table(data_headers, data_list, file_found)
+        report.end_artifact_report()
+        
+        tsvname = f'Music Resume Data'
+        tsv(report_folder, data_headers, data_list, tsvname)
+        
+    else:
+        logfunc(f'No Music Resume Data available')
 __artifacts__ = {
     "MyLink Miscellaneous Data": (
         "MyLink Misc Data",
-        ('*.dat*'),
+        ('*Resume.dat'),
         myLink_misc),
 }
