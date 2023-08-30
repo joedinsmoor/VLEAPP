@@ -14,6 +14,6 @@ def myLink_devices():
 __artifacts__ = {
     "MyLink Bluetooth Devices": (
         "MyLink Bluetooth Devices",
-        ('*/bluetooth/DB_BMS/CH_*.db*'),
+        ('bdAddr*.db*'),
         myLink_devices),
 }
