@@ -14,6 +14,6 @@ def myLink_misc():
 __artifacts__ = {
     "MyLink Miscellaneous Data": (
         "MyLink Misc Data",
-        ('*/bluetooth/DB_BMS/CH_*.db*'),
+        ('*.dat*'),
         myLink_misc),
 }
